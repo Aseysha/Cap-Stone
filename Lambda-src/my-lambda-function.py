@@ -6,3 +6,4 @@ def lambda_handler(event, context):
     response = s3.list_buckets()
     print(response)
     
+    
