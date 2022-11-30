@@ -17,6 +17,7 @@ jobs:
       - uses: actions/checkout@v3
       - name: Setup build code
         run:  |
+           sh build-code.sh
       - name: deploy infrastructure
         run:  |
           cd infrastructure
