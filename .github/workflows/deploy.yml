@@ -1,4 +1,4 @@
-name: Deploy infrastructure
+name: Deploy terraform
 on:
   push:
     branches:
@@ -21,9 +21,9 @@ jobs:
       - name: Setup build code
         run:  |
            sh build-code.sh
-      - name: deploy infrastructure
+      - name: deploy Infrastructure
         run:  |
-          cd infrastructure
+          cd Infrastructure
           sh build-code.sh
           terraform init
           terraform apply -auto-approve
