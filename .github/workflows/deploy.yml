@@ -20,9 +20,9 @@ jobs:
          terraform_version: 1.1.7
       - name: Setup build code
         run:  |
-           cd Infrastructure
            sh build-code.sh
       - name: deploy Infrastructure
         run:  |
+          cd Infrastructure
           terraform init
           terraform apply -auto-approve
