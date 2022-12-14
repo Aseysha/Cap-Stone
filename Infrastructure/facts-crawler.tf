@@ -9,7 +9,6 @@ resource "aws_lambda_function" "song_crawler" {
   source_code_hash = filebase64sha256("build/curiousfacts1-crawler.zip")
 
 }
-
 resource "aws_lambda_layer_version" "lambda_layer" {
   filename   = "build/requests-layer1.zip"
   layer_name = "lambda_layer"
