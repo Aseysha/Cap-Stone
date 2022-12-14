@@ -1,6 +1,7 @@
 import json
 import boto3
-from botocore.vendored import requests 
+import requests
+import uuid
 
 def lambda_handler(event, context):  
 
@@ -9,11 +10,20 @@ def lambda_handler(event, context):
 	querystring = {"limit":"5"}
 
 	headers = {
-		"X-RapidAPI-Key": "dbd4ad8b76mshdddba42df9c1d1dp148e1fjsna693f9cc8ea5",
-		"X-RapidAPI-Host": "facts-by-api-ninjas.p.rapidapi.com"
-	}
+			"X-RapidAPI-Key": "dbd4ad8b76mshdddba42df9c1d1dp148e1fjsna693f9cc8ea5",
+			"X-RapidAPI-Host": "facts-by-api-ninjas.p.rapidapi.com"
+		}
 
 	response = requests.request("GET", url, headers=headers, params=querystring)
-
-	print(response.text)
-    
+	jsonResponse = response.json()
+	dynamodb_client = boto3.client("dynamodb")
+	table_name = "Facts-dynamodb-table"
+	for key in jsonResponse:
+		print(key['fact'])
+		response = dynamodb_client.put_item(
+			TableName=table_name,
+			Item={
+				"facts_id": {"S": str(uuid.uuid1())},
+				"facts": {"S": key['fact']},
+			},
+		)
