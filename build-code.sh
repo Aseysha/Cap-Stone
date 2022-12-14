@@ -1,5 +1,5 @@
 mkdir Infrastructure/build
 
-cd song-crawler
-zip -r ../Infrastructure/build/song-crawler.zip .
+cd curiousfacts-crawler
+zip -r ../Infrastructure/build/curiousfacts1-crawler.zip .
 cd ..
