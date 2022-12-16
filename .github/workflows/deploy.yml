@@ -21,6 +21,9 @@ jobs:
       - name: Setup build code
         run:  |
            sh build-code.sh
+      - name: setup backend s3 buckets   
+        run: |     
+           sh setup_terraform_bucket.sh
       - name: deploy Infrastructure
         run:  |
           cd Infrastructure
