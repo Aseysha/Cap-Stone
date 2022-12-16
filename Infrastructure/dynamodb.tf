@@ -13,6 +13,6 @@ resource "aws_dynamodb_table" "facts_dynamodb_table" {
   }
 
     tags = {
-    Name        = "Facts-dynamodb-table"
+    Name = "Facts-dynamodb-table"
   }
 }

@@ -18,16 +18,11 @@ jobs:
       - uses: hashicorp/setup-terraform@v2
         with:
          terraform_version: 1.1.7
-      - name: setup backend s3 buckets  
-        run: |
-           sh setup_terraform_bucket.sh 
-      - name: deploy Infrastructure
-        run:  |
-           cd Infrastructure
-           sh userdata.sh
-           terraform init -backend-config=config.s3.tfbackend
-           terraform apply -auto-approve
       - name: Setup build code
         run:  |
-           sh build-code.sh 
-        
+           sh build-code.sh
+      - name: deploy Infrastructure
+        run:  |
+          cd Infrastructure
+          terraform init
+          terraform apply -auto-approve
