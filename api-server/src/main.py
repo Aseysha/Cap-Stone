@@ -1,28 +1,24 @@
-import requests
+import uvicorn
 import boto3
-import uuid
+from fastapi import FastAPI, HTTPException
 
-boto3.setup_default_session(profile_name="default")
-url = "https://facts-by-api-ninjas.p.rapidapi.com/v1/facts"
+app = FastAPI()
 
-querystring = {"limit":"5"}
 
-headers = {
-		"X-RapidAPI-Key": "dbd4ad8b76mshdddba42df9c1d1dp148e1fjsna693f9cc8ea5",
-		"X-RapidAPI-Host": "facts-by-api-ninjas.p.rapidapi.com"
-	}
-print(uuid.uuid1())
-response = requests.request("GET", url, headers=headers, params=querystring)
-jsonResponse = response.json()
-dynamodb_client = boto3.client("dynamodb")
-table_name = "Facts-dynamodb-table"
-for key in jsonResponse:
-	print(key['fact'])
-	response = dynamodb_client.put_item(
-		TableName=table_name,
-		Item={
-				"facts_id": {"S": str(uuid.uuid1())},
-				"facts": {"S": key['fact']},
-			},
-	)
 
+@app.get("/")
+def health():
+    return {"health": "OK"}
+
+@app.get("/facts")
+def getJokes():
+	dynamodb = boto3.resource('dynamodb',region_name='us-west-2')
+	table_name = "Facts-dynamodb-table"
+	table = dynamodb.Table(table_name)
+	return table.scan()['Items']
+
+
+
+
+if __name__ == "__main__":
+    uvicorn.run(app, host="0.0.0.0", port=80)
