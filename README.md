@@ -4,3 +4,4 @@
 
 Curious Facts Project collects random facts to satisfy your curiosity. The saying goes "Curiosity killed the cat" but it does not hurt to check on some interesting facts ;)
 
+![Diagram](README.png)
