@@ -1,6 +1,6 @@
+.DS_Store
 .terraform
 .terraform*
 terraform.tfstate* 
 *.zip
 python
-.DS_Store
