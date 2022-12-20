@@ -23,6 +23,6 @@ Curious Facts Project collects random facts to satisfy one's curiosity. The sayi
 
 - Amazon VPC
 
-![Diagram](Screenshot%202022-12-20%20at%2002.00.54.png)
+![Diagram](CuriousFacts_Diagram.png)
 
 HUGE THANKS TO MY LOVELY COACHES AND COLLEAGUES WHO WERE WITH ME ON THIS INCREDIBLE JOURNEY @[neue_fische](https://www.neuefische.de/en)
