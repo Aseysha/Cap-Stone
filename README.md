@@ -1,8 +1,12 @@
 #  Curious Facts
 
-"If you sneeze too hard, you could fracture a rib. In the course of an average lifetime, while sleeping you might eat around 70 assorted insects and 10 spiders, or more. Some lipsticks contain fish scales... "
+"If you sneeze too hard, you could fracture a rib."
 
-Curious Facts Project collects random facts to satisfy one's curiosity. The saying goes "Curiosity killed the cat" but it does not hurt to check on some interesting facts!
+"In the course of an average lifetime, while sleeping you might eat around 70 assorted insects and 10 spiders, or more."
+
+ "Fires onland generally move faster uphill than downhill." ...
+
+Curious Facts Project collects random facts to satisfy one's curiosity. The saying goes "Curiosity killed the cat" but it does not hurt to check on some interesting truths!
 
 ## Tech Talk
 
